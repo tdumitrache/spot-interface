@@ -1,4 +1,5 @@
 import React from 'react';
+import { ApolloWrapper } from 'components/ApolloWrapper';
 import { EnvironmentsEnum } from '@elrondnetwork/dapp-core/types';
 import {
   TransactionsToastList,
@@ -25,22 +26,24 @@ export const App = () => {
           walletConnectV2ProjectId
         }}
       >
-        <Layout>
-          <TransactionsToastList />
-          <NotificationModal />
-          <SignTransactionsModals className='custom-class-for-modals' />
-          <Routes>
-            <Route path={routeNames.unlock} element={<Unlock />} />
-            {routes.map((route, index) => (
-              <Route
-                path={route.path}
-                key={'route-key-' + index}
-                element={<route.component />}
-              />
-            ))}
-            <Route path='*' element={<PageNotFound />} />
-          </Routes>
-        </Layout>
+        <ApolloWrapper>
+          <Layout>
+            <TransactionsToastList />
+            <NotificationModal />
+            <SignTransactionsModals className='custom-class-for-modals' />
+            <Routes>
+              <Route path={routeNames.unlock} element={<Unlock />} />
+              {routes.map((route, index) => (
+                <Route
+                  path={route.path}
+                  key={'route-key-' + index}
+                  element={<route.component />}
+                />
+              ))}
+              <Route path='*' element={<PageNotFound />} />
+            </Routes>
+          </Layout>
+        </ApolloWrapper>
       </DappProvider>
     </Router>
   );

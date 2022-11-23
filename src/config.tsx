@@ -8,3 +8,6 @@ export const walletConnectV2ProjectId = '9b1a9564f91cb659ffe21b73d5c4e2d8';
 
 export const apiTimeout = 6000;
 export const transactionSize = 15;
+export const timeout = 10000;
+
+export const maiarIdApi = 'https://devnet-id.maiar.com/api/v1';

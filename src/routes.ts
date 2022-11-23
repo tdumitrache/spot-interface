@@ -3,11 +3,13 @@ import { dAppName } from 'config';
 import { withPageTitle } from './components/PageTitle';
 
 import { Dashboard, Home } from './pages';
+import Spot from 'pages/Spot/Spot';
 
 export const routeNames = {
   home: '/',
   dashboard: '/dashboard',
-  unlock: '/unlock'
+  unlock: '/unlock',
+  spot: '/spot'
 };
 
 interface RouteWithTitleType extends RouteType {
@@ -25,6 +27,11 @@ export const routes: RouteWithTitleType[] = [
     title: 'Dashboard',
     component: Dashboard,
     authenticatedRoute: true
+  },
+  {
+    path: routeNames.spot,
+    title: 'Spot',
+    component: Spot
   }
 ];
 

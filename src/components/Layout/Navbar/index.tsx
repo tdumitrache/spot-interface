@@ -25,6 +25,14 @@ export const Navbar = () => {
           <span className='dapp-name text-muted'>{dAppName}</span>
         </Link>
 
+        <Nav className='ml-5'>
+          <NavItem>
+            <Link to={routeNames.spot}>
+              <span className='btn btn-link'>Spot Trading</span>
+            </Link>
+          </NavItem>
+        </Nav>
+
         <Nav className='ml-auto'>
           {isLoggedIn && (
             <NavItem>

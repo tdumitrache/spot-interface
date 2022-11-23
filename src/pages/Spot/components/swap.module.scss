@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #131722;
+  border-radius: 0.5rem;
+  padding: 24px 0px;
+  gap: 32px;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: rgb(43, 49, 57);
+  border: 1px solid rgba(43, 47, 54, 0.8);
+  border-radius: 4px;
+  // margin-bottom: 8px;
+  max-width: 280px;
+}
+
+.input {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  text-align: right;
+  color: #fff;
+  margin: 0px 6px 0px auto;
+}
+
+.input[type=number]::-webkit-inner-spin-button, 
+.input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.btn {
+  height: 40px;
+  width: 100%;
+  border-radius: 4px;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btnBuy {
+  background-color: rgb(14, 203, 129);
+
+  &:hover {
+    background-color: rgb(135, 210, 182);
+  }
+}
+
+.btnSell {
+  background-color: rgb(246, 70, 93);
+
+  &:hover {
+    background-color: rgb(236, 156, 167);
+  }
+}
+
+.errorDisplay {
+  justify-self: flex-end;
+}
