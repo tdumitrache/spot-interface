@@ -55,7 +55,11 @@ export const SwapForm: React.FC<SwapFormProps> = ({
 
   // we want the totalValue to change, whenever user is filling any of the inputs
   React.useEffect(() => {
-    setTotalValue((Number(firstAmount) * Number(secondAmount)).toString());
+    if (firstAmount !== '' && secondAmount !== '') {
+      setTotalValue(() =>
+        (Number(firstAmount) * Number(secondAmount)).toString()
+      );
+    }
   }, [firstAmount, secondAmount]);
 
   const validationSchema = useSwapValidationSchema({
@@ -168,7 +172,7 @@ export const SwapForm: React.FC<SwapFormProps> = ({
 
   const handleOnChangeTotal = (event: React.FormEvent<HTMLInputElement>) => {
     setTotalValue(event.currentTarget.value);
-    setSecondAmount((Number(totalValue) / Number(firstAmount)).toString());
+    // setSecondAmount((Number(totalValue) / Number(firstAmount)).toString());
   };
 
   const balance = firstToken
