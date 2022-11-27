@@ -1,19 +1,19 @@
 import React from 'react';
-import { ApolloWrapper } from 'components/ApolloWrapper';
 import { EnvironmentsEnum } from '@elrondnetwork/dapp-core/types';
 import {
-  TransactionsToastList,
+  NotificationModal,
   SignTransactionsModals,
-  NotificationModal
+  TransactionsToastList
 } from '@elrondnetwork/dapp-core/UI';
 import { DappProvider } from '@elrondnetwork/dapp-core/wrappers';
+import { AccessTokenWrapper } from 'components/AccessTokenWrapper';
+import { ApolloWrapper } from 'components/ApolloWrapper';
 
-import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import { Layout } from 'components';
-import { apiTimeout, walletConnectV2ProjectId } from 'config';
+import { network, walletConnectBridge } from 'config';
 import { PageNotFound, Unlock } from 'pages';
-import { routeNames } from 'routes';
-import { routes } from 'routes';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { routeNames, routes } from 'routes';
 
 export const App = () => {
   return (
@@ -21,29 +21,30 @@ export const App = () => {
       <DappProvider
         environment={EnvironmentsEnum.devnet}
         customNetworkConfig={{
-          name: 'customConfig',
-          apiTimeout,
-          walletConnectV2ProjectId
+          ...network,
+          walletConnectBridgeAddresses: [walletConnectBridge]
         }}
       >
-        <ApolloWrapper>
-          <Layout>
-            <TransactionsToastList />
-            <NotificationModal />
-            <SignTransactionsModals className='custom-class-for-modals' />
-            <Routes>
-              <Route path={routeNames.unlock} element={<Unlock />} />
-              {routes.map((route, index) => (
-                <Route
-                  path={route.path}
-                  key={'route-key-' + index}
-                  element={<route.component />}
-                />
-              ))}
-              <Route path='*' element={<PageNotFound />} />
-            </Routes>
-          </Layout>
-        </ApolloWrapper>
+        <Layout>
+          <TransactionsToastList />
+          <NotificationModal />
+          <SignTransactionsModals className='custom-class-for-modals' />
+          <AccessTokenWrapper>
+            <ApolloWrapper>
+              <Routes>
+                <Route path={routeNames.unlock} element={<Unlock />} />
+                {routes.map((route, index) => (
+                  <Route
+                    path={route.path}
+                    key={'route-key-' + index}
+                    element={<route.component />}
+                  />
+                ))}
+                <Route path='*' element={<PageNotFound />} />
+              </Routes>
+            </ApolloWrapper>
+          </AccessTokenWrapper>
+        </Layout>
       </DappProvider>
     </Router>
   );

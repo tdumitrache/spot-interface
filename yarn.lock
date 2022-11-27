@@ -1203,10 +1203,10 @@
   "resolved" "https://registry.npmjs.org/@csstools/selector-specificity/-/selector-specificity-2.0.2.tgz"
   "version" "2.0.2"
 
-"@elrondnetwork/dapp-core-internal@^0.3.9":
-  "integrity" "sha512-m2L6Bn4Gseb0H9AErqyLA2+/ZPlW252jCruNOWhFLO4egAaaghV8WhawKk3uXsPqHETZVmUPeLCANfpUG6xTDA=="
-  "resolved" "https://registry.npmjs.org/@elrondnetwork/dapp-core-internal/-/dapp-core-internal-0.3.9.tgz"
-  "version" "0.3.9"
+"@elrondnetwork/dapp-core-internal@^0.4.0":
+  "integrity" "sha512-N6bI1F+Io69zgFx7KgdVTjFMQsv9dljrJvDotwekW4H2nXQiQHRIATRr0T0cRhsCiaCv2XqUXxdc4KH9cBaiPQ=="
+  "resolved" "https://registry.npmjs.org/@elrondnetwork/dapp-core-internal/-/dapp-core-internal-0.4.0.tgz"
+  "version" "0.4.0"
   dependencies:
     "@elrondnetwork/erdjs" "11.1.1"
     "axios" "0.24.0"

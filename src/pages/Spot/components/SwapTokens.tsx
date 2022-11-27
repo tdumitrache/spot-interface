@@ -57,13 +57,13 @@ export const SwapTokens = () => {
       ) : (
         <>
           <SwapForm
-            firstToken={firstToken}
-            secondToken={secondToken}
+            firstTokenToSwap={firstToken}
+            secondTokenToSwap={secondToken}
             isBuying
           />
           <SwapForm
-            firstToken={secondToken}
-            secondToken={firstToken}
+            firstTokenToSwap={secondToken}
+            secondTokenToSwap={firstToken}
             isBuying={false}
           />
         </>
